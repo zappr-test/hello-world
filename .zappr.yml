@@ -1,18 +1,28 @@
 approvals:
-  # PR needs at least 4 approvals
-  minimum: 1
+  # PR needs at least 2 approvals
+  minimum: 2
   # approval = comment that matches this regex
-  pattern: "^:\\+1:$"
+  pattern: "^(:\\+1:|👍)$"
+  # note that `from` is by default empty,
+  # accepting any matching comment as approval
   from:
     # commenter must be either one of:
-    # a public zalando org member
     orgs:
+      # a public zalando org member
+      # (any org in here counts)
       - zalando
-    # a collaborator of the repo
+    # OR a collaborator of the repo
     collaborators: true
-    # this guy
+    # OR one of these guys
     users:
+      - prayerslayer
       - mfellner
+commit:
+  message:
+    patterns:
+      - "^#[0-9]+" # has to begin with hash # and at least one number
+        # OR
+      - "^💩💩💩$" # be three piles of poo
 autobranch:
   # things in curly brackets are variables that
   # will be replaced. possible variables:
