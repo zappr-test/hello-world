@@ -1,2 +1,5 @@
 approvals:
   ignore: both
+  from:
+    orgs:
+      - zalando
